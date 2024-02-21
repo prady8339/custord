@@ -1,0 +1,59 @@
+.form-container {
+  position: absolute;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  width: 350px;
+  border: 1px solid var(--hover);
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.authHeader {
+  text-align: center;
+  font-size: 25px;
+}
+.authBody{
+    text-align: center;
+    font-size: 18px;
+    margin: 1rem 0;
+}
+.authLoader {
+  border: 0.5px dashed var(--hover);
+  margin: 1rem 0;
+}
+
+.authButton {
+  border-radius: 10px;
+  background-color: var(--theme);
+  color: white;
+  padding: 14px 20px;
+  margin: 5% 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.authButton:hover {
+  background-color: var(--themeHover);
+  opacity: 0.8;
+}
+.disConnectBtn {
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid rgb(246, 37, 0);
+  color: rgb(252, 38, 0);
+
+  padding: 14px 20px;
+  margin: 5% 0;
+  cursor: pointer;
+  width: 100%;
+}
+.disConnectBtn:hover {
+  background-color: rgb(230, 35, 0);
+  border: 1px solid transparent;
+  color: white;
+  opacity: 0.8;
+}
