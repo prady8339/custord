@@ -1,0 +1,87 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(230, 230, 230);
+    height: 100vh;
+    flex: 0 0 25%;
+    overflow: auto;
+}
+.header{
+
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-bottom: 1px solid rgb(119, 119, 119);
+}
+.header > h2 > svg{
+   height:16px;
+}
+.header >svg{
+   margin: auto;
+   flex : 0 0 5%;
+}
+.cards{
+ 
+    overflow: auto;
+    background-color: rgb(230, 230, 230);
+}
+
+.inbox-item{
+    background-color: white;
+    padding: 10px;
+    border-bottom: 1px solid rgb(119, 119, 119);
+}
+.inbox-item:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+.inbox-author{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    justify-content:stretch;
+}
+
+.input-author > h3, p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: rgb(119, 119, 119);
+}
+.inbox-item-name{
+    flex : 1;
+}
+.inbox-item-time{
+    flex : 0 0 5%;
+    align-items: end;
+    color: rgb(119, 119, 119);
+}
+.inbox-checkbox {
+    flex : 0 0 5%;
+    margin: auto 10px 0 0;
+}
+.inbox-checkbox > input {
+    margin: 0;
+    padding: 0;
+    height: 22px;
+    width: 22px;
+    margin:auto;
+}
+
+.inbox-item-subject{
+    font-weight: 500;
+}
+.inbox-item-message{
+    margin: 2px 0;
+    font-size: 14px;
+    color: rgb(119, 119, 119);
+}
+
+.redoButton {
+    cursor: pointer;
+    transition: transform 0.75s ease; /* Add a transition effect for smooth rotation */
+  }
+  
+  .rotated {
+    transform: rotate(720deg); /* Rotate the button 180 degrees when the 'rotated' class is applied */
+  }

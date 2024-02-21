@@ -16,16 +16,16 @@
 
 
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 1px;
   border-radius: 5px;
 }
 
 *::-webkit-scrollbar-track {
-  background-color: var(--box);
+  background-color: white;
   border-radius: 5px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--hover);
+  background-color: white;
   border-radius: 5px;
 }
