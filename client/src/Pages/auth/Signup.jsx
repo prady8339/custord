@@ -44,7 +44,7 @@ const Signup = ({ signup, isAuthenticated }) => {
 
   const navigate = useNavigate();
   if (isAuthenticated) {
-    navigate("/home"); // Navigate if authenticated
+    navigate("/inbox"); // Navigate if authenticated
     return null; // Or return something else if needed
   }
   if (accountCreated) {

@@ -1,34 +1,48 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./Sidebar.module.css";
-import { FaUserFriends, FaSnowflake, FaInbox , FaChartPie } from "react-icons/fa";
+import { FaUserFriends, FaSnowflake, FaInbox , FaChartPie , FaSignOutAlt, FaDotCircle} from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-
+import Cookies from "universal-cookie";
 
 const Sidebar = (props) => {
+
+  const handelLogout = () => {
+    const cookies = new Cookies();
+    // cookies.remove('TOKEN', { path: '/' });
+    // cookies.remove('profile', { path: '/' });
+    
+  }
+  
   const location = useLocation();
+  console.log(location.pathname === "/inbox");
 
   const menuItem = [
     {
       name: "Home",
-      to: "/home",
+      to: "/inbox",
       icon: <FaSnowflake />,
     },
     {
-      name: "Create",
-      to: "/home",
+      name: "Inbox",
+      to: "/inbox",
       icon: <FaInbox />,
     },
     {
       name: "Play",
-      to: "/home",
+      to: "/inbox",
       icon: <FaUserFriends />,
     },
     {
       name: "Dashboard",
-      to: "/home",
+      to: "/inbox",
       icon: <FaChartPie />,
     },
+    {
+      name:"Disconnect",
+      to:"/fbdisconnect",
+      icon:<FaDotCircle/>
+    }
   ];
 
   
@@ -61,7 +75,30 @@ const Sidebar = (props) => {
               {item.name}
             </div>
           </NavLink>
+         
         ))}
+
+        <NavLink
+            
+            to='/'
+            key='1321'
+            className={
+              location.pathname === false
+                ? `${styles.active} ${styles.link}`
+                : styles.link
+            }
+          >
+            <div className={styles.icon} onClick={
+              handelLogout()}>
+            <FaSignOutAlt />
+            </div>
+            <div
+              style={{ display: props.isOpen ? "block" : "none" }}
+              className={styles["link-text"]}
+            >
+              Logout
+            </div>
+          </NavLink>
       </div>
     </div>
   );

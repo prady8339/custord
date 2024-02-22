@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 
 const dbConnect = require('./DbConnect/DbConnect');
 const User = require('./Schema/UserSchema')
+const Chat = require('./Schema/ChatSchema')
 const auth = require("./auth");
 
 dotenv.config(); 
@@ -36,6 +37,16 @@ app.use((req, res, next) => {
 // Use body-parser middleware to parse POST request data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+/*
+curl -X POST http://localhost:8000/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "your_password"
+  }'
+*/
 
 // register endpoint currenly not throwing unique email error :0 on purpose
 app.post("/register", (request, response) => {
@@ -78,6 +89,15 @@ app.post("/register", (request, response) => {
 });
 
 // login endpoint
+/*
+curl -X POST http://localhost:8000/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "john.doe@example.com",
+    "password": "your_password"
+  }'
+*/
+
 app.post("/login", (request, response) => {
   // check if email exists
   User.findOne({ email: request.body.email })
@@ -137,12 +157,51 @@ app.get("/free-endpoint", (request, response) => {
   response.json({ message: "You are free to access me anytime" });
 });
 
-// authentication endpoint
+// authentication 
+/*
+curl http://localhost:8000/auth-endpoint \
+  -H "Authorization: Bearer your_token"
+*/
 app.get("/auth-endpoint", auth, (request, response) => {
   response.json({ message: "You are authorized to access me" });
 });
 
 
+// GET Endpoint for Chats
+app.get("/chats", auth, async (request, response) => {
+  try {
+    const senderId = request.query.senderId;
+    const receiverId = request.query.receiverId;
+
+    const chats = await Chat.find({  $or: [{ senderId: senderId },{senderId:receiverId } ,{ receiverId: receiverId },{ receiverId: senderId }], });
+    response.status(200).json({ chats });
+  } catch (error) {
+    response.status(500).json({ message: "Error fetching chats", error });
+  }
+});
+
+// POST Endpoint for Chats
+app.post("/chats", auth, async (request, response) => {
+  try {
+    const { senderId, receiverId, name, message, timestamp } = request.body;
+    
+    const newChat = new Chat({
+      senderId,
+      receiverId,
+      name,
+      message,
+      timestamp,
+    });
+
+    const savedChat = await newChat.save();
+    response.status(201).json({ message: "Chat message created successfully", chat: savedChat });
+  } catch (error) {
+    response.status(500).json({ message: "Error creating chat message", error });
+  }
+});
+
+
+// ... (remaining code)
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

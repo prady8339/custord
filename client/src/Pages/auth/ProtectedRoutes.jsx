@@ -4,8 +4,10 @@ const cookies = new Cookies();
 
 
 const ProtectedRoutes = (props) => {
-  const token = cookies.get("TOKEN");
 
+  const token = cookies.get("TOKEN");
+  console.log(token);
+  
         if (token) {
           return (
             <>{props.children}</>

@@ -15,7 +15,7 @@ function App() {
       <Route path="/login" element={<Login />} />
 
       <Route
-        path="/home"
+        path="/inbox"
         element={
           <ProtectedRoutes>
             <Home />

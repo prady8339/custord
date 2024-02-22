@@ -1,6 +1,7 @@
 import React,{ useState } from "react";
 import styles from "./Inbox.module.css";
 import data from "../../Data/inboxData";
+
 import { FaRedo, FaList } from "react-icons/fa";
 const Inbox = () => {
   const [isRotated, setIsRotated] = useState(false);

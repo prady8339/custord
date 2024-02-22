@@ -9,7 +9,7 @@ const UserFbPages = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const cookies = new Cookies();
-    window.location.href = "/home";
+    window.location.href = "/inbox";
   };
 
 
