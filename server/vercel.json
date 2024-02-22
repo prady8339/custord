@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "build" : [
+        {
+            "src": "server.js",
+            "use": "@now/node"
+        }
+    
+    ],
+    "routes": [
+        { "src": "/(.*)", "dest": "server.js" }
+    ],
+    "devCommand": "node server.js"
+  }
