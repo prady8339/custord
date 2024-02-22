@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from "./Auth.module.css";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 import axios from "axios";
 
 const Login = ({ Login, isAuthenticated }) => {
-  const [accountCreated, setAccountCreated] = useState(false);
+  const cookies = new Cookies();
+  const [isLogin, setLogin] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
-    name: "",
-  
     password: "",
 
   });
-  const { name, email, password } = formData;
+  const {  email, password } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,7 +22,25 @@ const Login = ({ Login, isAuthenticated }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-   
+    const configuration = {
+      method: "post",
+      url: "http://localhost:8000/login",
+      data: {
+        email,
+        password,
+      },
+    };
+    axios(configuration)
+    .then((result) => {
+      setLogin(true);
+      cookies.set("TOKEN", result.data.token, {
+        path: "/",
+      });
+    })
+    .catch((error) => {
+      error = new Error();
+    });
+
   };
 
   const navigate = useNavigate();
@@ -30,8 +48,8 @@ const Login = ({ Login, isAuthenticated }) => {
     navigate("/home"); // Navigate if authenticated
     return null; // Or return something else if needed
   }
-  if (accountCreated) {
-    navigate("/login");
+  if (isLogin) {
+    navigate("/fbconnect");
   }
 
   const togglePasswordVisibility = () => {
@@ -96,7 +114,7 @@ const Login = ({ Login, isAuthenticated }) => {
           </div>
           
           <button type="submit" className={styles.authButton}>
-            Sign up for free
+            Login
           </button>
           <div
             style={{

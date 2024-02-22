@@ -7,22 +7,39 @@ import axios from "axios";
 const Signup = ({ signup, isAuthenticated }) => {
   const [accountCreated, setAccountCreated] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  
   const [formData, setFormData] = useState({
     email: "",
     name: "",
-  
     password: "",
-
   });
   const { name, email, password } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-
+    
+    
   const onSubmit = async (e) => {
     e.preventDefault();
-   
+    const configuration = {
+      method: "post",
+      url: "http://localhost:8000/register",
+      data: {
+        name,
+        email,
+        password,
+      },
+    };
+    axios(configuration)
+    .then((result) => {
+      setAccountCreated(true);
+    })
+    .catch((error) => {
+      error = new Error();
+    });
+
   };
 
   const navigate = useNavigate();
@@ -108,7 +125,7 @@ const Signup = ({ signup, isAuthenticated }) => {
           </div>
           
           <button type="submit" className={styles.authButton}>
-            Sign up for free
+            Sign Up
           </button>
           <div
             style={{

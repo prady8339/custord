@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// register endpoint
+// register endpoint currenly not throwing unique email error :0 on purpose
 app.post("/register", (request, response) => {
   // hash the password
   bcrypt
