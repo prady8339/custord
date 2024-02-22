@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home";
 import FbIntegration from "./Pages/FbIntegration/FbConnect";
 import FbDisConnect from "./Pages/FbIntegration/FbDisconnect";
 import ProtectedRoutes from "./Pages/Auth/ProtectedRoutes";
+import UserFbPages from "./Pages/UserFbPages/UserFbPages";
 
 function App() {
   return (
@@ -36,7 +37,16 @@ function App() {
             <FbDisConnect />
           </ProtectedRoutes>
         }
+       
       />
+       <Route
+        path="/userfbpages"
+        element={
+          <ProtectedRoutes>
+            <UserFbPages />
+          </ProtectedRoutes>
+        }
+        />
     </Routes>
   );
 }
