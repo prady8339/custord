@@ -38,10 +38,10 @@ Custord originated as a Proof of Concept (POC) web app for a Facebook Helpdesk. 
 ## Technology Stack
 
 - **Frontend:**
-  Reactjs
+  ReactJs
   
 - **Backend:**
-  Reactjs
+  NodeJs
   
 - **Database Management:**
   MongoDB
