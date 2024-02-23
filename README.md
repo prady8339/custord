@@ -1,7 +1,4 @@
 
-
-![theme-removebg-preview](https://s3.amazonaws.com/resumator/customer_20211012064647_FFUH5YGA9CMVQ6ZA/logos/20220613121757_Richpanel_Color.png)
-
 # Custord
 
 Custord is a comprehensive customer engagement solution designed to streamline communication between businesses and customers. It is developed as a Facebook Helpdesk application.
