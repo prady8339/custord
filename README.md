@@ -1,7 +1,7 @@
 
 # Custord
 
-Custord is a comprehensive customer engagement solution designed to streamline communication between businesses and customers. It is developed as a Facebook Helpdesk application.
+Custord is a comprehensive customer engagement solution to streamline business and customer communication. It is developed as a Facebook Helpdesk application.
 
 ## Table of Contents
 
@@ -31,20 +31,24 @@ Custord is a powerful customer engagement solution that provides businesses with
 - **User-Friendly Interface:**
   Custord prioritizes a user-friendly interface for a smooth and efficient user experience.
 
-## Assignment Overview
+## Overview
 
-Custord originated as a Proof of Concept (POC) app designed for a Facebook Helpdesk. The goal was to create a solution for businesses to connect their Facebook accounts, listen to messenger messages, and respond efficiently within the application.
+Custord originated as a Proof of Concept (POC) web app for a Facebook Helpdesk. The goal was to create a solution for businesses to connect their Facebook accounts, listen to messenger messages, and respond efficiently within the application.
 
 ## Technology Stack
 
-- **Full Stack Development:**
-  Custord is developed by Full Stack Developers, showcasing proficiency in both front-end and back-end technologies.
-
+- **Frontend:**
+  Reactjs
+  
+- **Backend:**
+  Reactjs
+  
 - **Database Management:**
-  The application utilizes a database to store user account information, conversations, and other relevant details.
+  MongoDB
 
 - **Facebook Integration:**
-  Custord seamlessly integrates with Facebook Messenger, following guidelines provided in Facebook's developer documentation.
+  Facebook Auth
+  Graph API
 
 
 
